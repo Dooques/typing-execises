@@ -33,4 +33,23 @@
             Console.WriteLine(floatAsInt);
         }
     }
+
+    public class Task03
+    {
+
+
+        public static void Run()
+        {
+
+            double num1 = 2.2;
+            decimal num2 = 4.9m;
+
+            Console.WriteLine(MultiplyInt((int)num1, (int)num2));
+        }
+
+        private static int MultiplyInt(int a, int b)
+        {
+            return a * b;
+        }
+    }
 }

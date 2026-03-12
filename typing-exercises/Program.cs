@@ -7,6 +7,7 @@
             Task00.Task00.Run();
             // Tasks.Task01Class.Run();
             Tasks.Task02.Run();
+            Tasks.Task03.Run();
         }
     }
 }
