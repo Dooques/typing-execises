@@ -67,4 +67,32 @@
 
 
     }
+
+    public class Task05
+    {
+        public static void Run()
+        {
+            Console.WriteLine("Enter a int then a decimal");
+            string inputs = Console.ReadLine();
+
+            string[] parts = inputs.Split(' ');
+
+            int intVariable; 
+
+            Int32.TryParse(parts[0], out intVariable);
+
+            decimal decVariable = 0;
+            decimal.TryParse(parts[1], out decVariable);
+
+            Console.WriteLine($"Int variable is {intVariable} and decimal variable is {decVariable}");
+
+            double result = (double)(intVariable / decVariable);
+            Console.WriteLine(result);
+
+
+
+
+        }
+    }
+
 }

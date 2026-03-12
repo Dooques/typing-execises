@@ -9,6 +9,7 @@
             Tasks.Task02.Run();
             Tasks.Task03.Run();
             Tasks.Task04.Run();
+            Tasks.Task05.Run();
         }
     }
 }
