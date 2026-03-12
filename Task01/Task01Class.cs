@@ -88,11 +88,43 @@
 
             double result = (double)(intVariable / decVariable);
             Console.WriteLine(result);
-
-
-
-
         }
     }
+    public class Task06
+    {
+        public static void Run()
+        {
+            Car car1 = new Car(4, "Mazda");
 
+            Console.WriteLine(car1.StartDriving());
+
+            car1.GetHashCode();
+            Car car2 = new Car(2, "Toyota");
+
+        }
+        
+        class Car
+        {
+            public bool Seatbelt { get; set; }
+            public int Doors { get; set; }
+            public string Brand { get; set; }
+
+            public string StartDriving()
+            {
+                return "Driving";
+            }
+
+            public void UseSeatbelt()
+            {
+                Seatbelt = true;
+            }
+
+            public Car(int doors, string brand)
+            {
+                Seatbelt = false;
+                Doors = doors;
+                Brand = brand;
+            }
+
+        }
 }
