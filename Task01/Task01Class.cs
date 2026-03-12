@@ -1,4 +1,7 @@
-﻿namespace Tasks
+﻿using System.Numerics;
+using System.Text.Json;
+
+namespace Tasks
 {
     public class Task01Class
     {
@@ -186,11 +189,28 @@
                 YearsCoding = int.Parse(studentDictionary["YearsCoding"]),
                 CodingAffiliation = studentDictionary["CodingAffiliation"]
 
-            };            
+            };
+
             
 
 
+            
             student.CheckIfDebugging();
+        }
+
+        public static void Run2()
+        {
+            string jsonString = """
+            {
+              "Name": "Evie Pom",
+              "YearsCoding": 6,
+              "IsDebugging": false,
+              "CodingAffiliation": "Poms Who Code"
+            }
+            """;
+            NorthcodersStudent blah = JsonSerializer.Deserialize<NorthcodersStudent>(jsonString);
+
+            Console.WriteLine($"{blah.Name}");
         }
     
 
