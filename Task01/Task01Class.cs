@@ -77,7 +77,7 @@
 
             string[] parts = inputs.Split(' ');
 
-            int intVariable; 
+            int intVariable;
 
             Int32.TryParse(parts[0], out intVariable);
 
@@ -130,7 +130,7 @@
             }
         }
     }
-     public class Task07
+    public class Task07
     {
         public static void Run()
         {
@@ -143,6 +143,73 @@
             else
             {
                 Console.WriteLine("Ok, Goodbye");
+            }
+        }
+    }
+    public class Task08
+    {
+
+        public static void Run()
+        {
+            Console.WriteLine("Input a string in to be converted into a class with the format");
+            Console.WriteLine("Are you currently debugging (true or false)");
+            Console.WriteLine("Please enter your name");
+            Console.WriteLine("Please enter your years of Coding");
+            Console.WriteLine("Coding Affiliation");
+            Console.WriteLine("Property1: Value1 / Property2: Value2 etc");
+
+            string result = Console.ReadLine();
+
+            string[] properties = result.Split('/'); //["Property1: Value1", " Property2: Value2"]
+            Dictionary<string, string> studentDictionary = new Dictionary<string, string>();
+
+            foreach (string propertyAndValue in properties)
+            {
+                string[] splitPropertyAndValues = propertyAndValue.Split(':');
+                //[["Property1", " Value1"], [" Property2", " Value2"]]
+
+                string property = splitPropertyAndValues[0].Trim();
+                string value = splitPropertyAndValues[1].Trim();
+
+                studentDictionary[property] = value;
+
+            }
+            foreach (KeyValuePair<string, string> kvp in studentDictionary)
+            {
+                Console.WriteLine($"Property: {kvp.Key}, Value: {kvp.Value}");
+            }
+
+            NorthcodersStudent student = new NorthcodersStudent
+            {
+                IsDebugging = bool.Parse(studentDictionary["IsDebugging"]),
+                Name = studentDictionary["Name"],
+                YearsCoding = int.Parse(studentDictionary["YearsCoding"]),
+                CodingAffiliation = studentDictionary["CodingAffiliation"]
+
+            };            
+            
+
+
+            student.CheckIfDebugging();
+        }
+    
+
+        public class NorthcodersStudent
+        {
+            public bool IsDebugging { get; set; }
+            public string Name { get; set; }
+            public int YearsCoding { get; set; }
+            public string CodingAffiliation { get; set; } = "Northcoders";
+            public void CheckIfDebugging()
+            {
+                if (IsDebugging)
+                {
+                    Console.WriteLine("Defeating bugs in code...");
+                }
+                else
+                {
+                    Console.WriteLine("Bugs defeated, happy coding!");
+                }
             }
         }
     }

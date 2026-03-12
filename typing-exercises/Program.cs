@@ -10,8 +10,9 @@
             //Tasks.Task03.Run();
             //Tasks.Task04.Run();
             //Tasks.Task05.Run();
-            Tasks.Task06.Run();
-            Tasks.Task07.Run();
+            //Tasks.Task06.Run();
+            //Tasks.Task07.Run();
+            Tasks.Task08.Run();
         }
     }
 }
