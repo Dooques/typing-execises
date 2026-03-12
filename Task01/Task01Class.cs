@@ -101,8 +101,12 @@
             car1.GetHashCode();
             Car car2 = new Car(2, "Toyota");
 
+            Car car3 = car1;
+
+            Console.WriteLine($"car1 = {car1.GetHashCode()}, car2 = {car2.GetHashCode()}, car3 = {car3.GetHashCode()}");
+
         }
-        
+
         class Car
         {
             public bool Seatbelt { get; set; }
@@ -127,4 +131,6 @@
             }
 
         }
+
+    }
 }
