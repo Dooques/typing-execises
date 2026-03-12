@@ -11,6 +11,7 @@
             //Tasks.Task04.Run();
             //Tasks.Task05.Run();
             Tasks.Task06.Run();
+            Tasks.Task07.Run();
         }
     }
 }

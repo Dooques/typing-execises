@@ -104,7 +104,6 @@
             Car car3 = car1;
 
             Console.WriteLine($"car1 = {car1.GetHashCode()}, car2 = {car2.GetHashCode()}, car3 = {car3.GetHashCode()}");
-
         }
 
         class Car
@@ -129,8 +128,22 @@
                 Doors = doors;
                 Brand = brand;
             }
-
         }
-
+    }
+     public class Task07
+    {
+        public static void Run()
+        {
+            Console.WriteLine("Would you like to see your input returned as a char array");
+            string booleanResponse = Console.ReadLine();
+            if (booleanResponse == "yes")
+            {
+                Console.WriteLine(booleanResponse.ToCharArray());
+            }
+            else
+            {
+                Console.WriteLine("Ok, Goodbye");
+            }
+        }
     }
 }
