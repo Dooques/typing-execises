@@ -36,8 +36,6 @@
 
     public class Task03
     {
-
-
         public static void Run()
         {
 
@@ -51,5 +49,22 @@
         {
             return a * b;
         }
+    }
+
+    public class Task04
+    {
+        public static void Run()
+        {
+            string stringValue = "580";
+            int num = 42;
+            int parsedString;
+            Console.WriteLine(Int32.TryParse(stringValue, out parsedString));
+            Console.WriteLine($"parsed String {parsedString} is {parsedString.GetType()}");
+
+            Console.WriteLine(Convert.ToInt32(stringValue).GetType());
+            Console.WriteLine(Convert.ToDecimal(stringValue).GetType());
+        }
+
+
     }
 }
