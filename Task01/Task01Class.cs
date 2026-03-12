@@ -1,4 +1,7 @@
-﻿namespace Tasks
+﻿using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
+
+namespace Tasks
 {
     public class Task01Class
     {
@@ -106,13 +109,13 @@
             Console.WriteLine($"car1 = {car1.GetHashCode()}, car2 = {car2.GetHashCode()}, car3 = {car3.GetHashCode()}");
         }
 
-        class Car
+        public class Car
         {
             public bool Seatbelt { get; set; }
             public int Doors { get; set; }
             public string Brand { get; set; }
 
-            public string StartDriving()
+            public virtual string StartDriving()
             {
                 return "Driving";
             }
@@ -127,6 +130,21 @@
                 Seatbelt = false;
                 Doors = doors;
                 Brand = brand;
+            }
+
+            public override string ToString()
+            {
+                string? baseString = base.ToString();
+                if (baseString != null)
+                {
+                    return $"Seatbelt = {Seatbelt}, Doors = {Doors}, Brand = {Brand} " + baseString;
+
+                }
+                else
+                {
+                    return "Something went wrong";
+                }
+
             }
         }
     }
@@ -186,13 +204,25 @@
                 YearsCoding = int.Parse(studentDictionary["YearsCoding"]),
                 CodingAffiliation = studentDictionary["CodingAffiliation"]
 
-            };            
-            
-
-
+            };
             student.CheckIfDebugging();
         }
-    
+        public static void RunWithDeserializer()
+        {
+            string jsonString = @"{
+                ""Name"": ""Evie Pom"",
+                ""YearsCoding"": 6,
+                ""IsDebugging"": false,
+                ""CodingAffiliation"" : ""Poms Who Code""
+            }";
+            Console.WriteLine(jsonString);
+            NorthcodersStudent? northCodersStudent = JsonSerializer.Deserialize<NorthcodersStudent>(jsonString);
+            if (northCodersStudent != null)
+            {
+                Console.WriteLine($"Student: {northCodersStudent.Name}");
+            }
+        }
+
 
         public class NorthcodersStudent
         {
@@ -211,6 +241,41 @@
                     Console.WriteLine("Bugs defeated, happy coding!");
                 }
             }
+        }
+    }
+
+    public class Task09
+    {
+        public static void Run()
+        {
+            ElectricCar waymoCar = new ElectricCar(4, "Waymo", "Gemini");
+            Task06.Car basicCar = new Task06.Car(2, "Mazda");
+
+            Console.WriteLine(waymoCar.StartDriving());
+            Console.WriteLine(basicCar.StartDriving());
+
+            Console.WriteLine(basicCar.ToString());
+        }
+
+        class ElectricCar : Task06.Car
+        {
+            string NavigationSystem;
+            public ElectricCar(int doors, string brand, string navigationSystem) : base(doors, brand)
+            {
+                NavigationSystem = navigationSystem;
+                
+            }
+
+            public override string StartDriving()
+            {
+                Console.WriteLine("Navigation System Engaged");
+                return base.StartDriving();
+            }
+
+            //public override string ToString()
+            //{
+
+            //}
         }
     }
 }
